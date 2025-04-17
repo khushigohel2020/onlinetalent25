@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>C Language Quiz</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f6f8;
+      color: #111827;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .quiz-container {
+      max-width: 700px;
+      margin: auto;
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #1E3A8A;
+    }
+
+    .question {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      cursor: pointer;
+    }
+
+    button {
+      background-color: #1E3A8A;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background-color: #3B82F6;
+    }
+
+    .result {
+      font-weight: bold;
+      font-size: 18px;
+      margin-top: 20px;
+      color: #F97316;
+      text-align: center;
+    }
+
+    .exit-button {
+      margin-top: 40px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .feedback {
+      margin-top: 10px;
+      font-weight: normal;
+      font-size: 14px;
+      color: #888888;
+    }
+
+    .correct-answer {
+      color: green;
+    }
+
+    .wrong-answer {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <ul>
+      <img src="LOGO.png" alt="logo">
+      <li><a href="p1.html">Home</a></li>
+      <li>
+        <a href="#">Videos ▾</a>
+        <ul>
+          <li><a href="p2.html">HTML</a></li>
+          <li><a href="p2-2.html">CSS</a></li>
+          <li><a href="p2-3.html">JavaScript</a></li>
+          <li><a href="p2-4.html">Java</a></li>
+          <li><a href="p2-5.html">C</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Quiz ▾</a>
+        <ul>
+          <li><a href="p3.html">HTML</a></li>
+          <li><a href="p3-2.html">CSS</a></li>
+          <li><a href="p3-3.html">JavaScript</a></li>
+          <li><a href="p3-4.html">Java</a></li>
+          <li><a href="p3-5.html">C</a></li>
+        </ul>
+      </li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="ourteam.html">Our Team</a></li>
+    </ul>
+  </nav><br>
+
+  <div class="quiz-container">
+    <h1>Quiz: C Language Basics</h1>
+
+    <form id="quizForm">
+      <div class="question">
+        <p>1. Which of the following is a valid C variable name?</p>
+        <label><input type="radio" name="q1" value="correct"> my_variable</label>
+        <label><input type="radio" name="q1" value="wrong"> 1variable</label>
+        <div id="feedback-q1" class="feedback"></div>
+      </div>
+
+      <div class="question">
+        <p>2. What is the correct syntax to print something in C?</p>
+        <label><input type="radio" name="q2" value="wrong"> print("Hello");</label>
+        <label><input type="radio" name="q2" value="correct"> printf("Hello");</label>
+        <div id="feedback-q2" class="feedback"></div>
+      </div>
+
+      <div class="question">
+        <p>3. Which data type is used to create a variable that should store text?</p>
+        <label><input type="radio" name="q3" value="wrong"> int</label>
+        <label><input type="radio" name="q3" value="correct"> char</label>
+        <div id="feedback-q3" class="feedback"></div>
+      </div>
+
+      <div class="question">
+        <p>4. What will the following code print?<br>`int a = 5; printf("%d", a);`</p>
+        <label><input type="radio" name="q4" value="correct"> 5</label>
+        <label><input type="radio" name="q4" value="wrong"> %d</label>
+        <div id="feedback-q4" class="feedback"></div>
+      </div>
+
+      <div class="question">
+        <p>5. What symbol is used to end a statement in C?</p>
+        <label><input type="radio" name="q5" value="correct"> ;</label>
+        <label><input type="radio" name="q5" value="wrong"> :</label>
+        <div id="feedback-q5" class="feedback"></div>
+      </div>
+
+      <button type="button" onclick="submitQuiz()">Submit</button>
+    </form>
+
+    <div class="result" id="result"></div>
+
+    <div class="exit-button">
+      <button onclick="p4()">Exit</button>
+    </div>
+  </div>
+
+  <script>
+    function submitQuiz() {
+      const answers = {
+        q1: "correct",
+        q2: "correct",
+        q3: "correct",
+        q4: "correct",
+        q5: "correct"
+      };
+
+      let score = 0;
+      for (let q in answers) {
+        const selected = document.querySelector(`input[name="${q}"]:checked`);
+        const feedbackElement = document.getElementById(`feedback-${q}`);
+        
+        if (selected) {
+          if (selected.value === answers[q]) {
+            score++;
+            feedbackElement.textContent = "Correct!";
+            feedbackElement.className = "feedback correct-answer";
+          } else {
+            feedbackElement.textContent = "Wrong answer. The correct answer is: " + (answers[q] === "correct" ? "my_variable, printf(\"Hello\"), char, 5, ;" : "");
+            feedbackElement.className = "feedback wrong-answer";
+          }
+        } else {
+          feedbackElement.textContent = "You didn't select an answer.";
+          feedbackElement.className = "feedback wrong-answer";
+        }
+      }
+
+      const result = document.getElementById("result");
+      result.textContent = `You scored ${score}/5 correct answers.`;
+    }
+
+    function p4() {
+      window.location.href = "p4.html"; // or homepage
+    }
+  </script>
+
+</body>
+</html>

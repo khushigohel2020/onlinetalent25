@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS Quiz</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f6f8;
+      color: #111827;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .quiz-container {
+      max-width: 700px;
+      margin: auto;
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #1E3A8A;
+    }
+
+    .question {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      cursor: pointer;
+    }
+
+    button {
+      background-color: #1E3A8A;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background-color: #3B82F6;
+    }
+
+    .result {
+      font-weight: bold;
+      font-size: 18px;
+      margin-top: 20px;
+      color: #F97316;
+      text-align: center;
+    }
+
+    .exit-button {
+      margin-top: 40px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .feedback {
+      margin-top: 10px;
+      font-weight: normal;
+      font-size: 14px;
+      color: #888888;
+    }
+
+    .correct-answer {
+      color: green;
+    }
+
+    .wrong-answer {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <ul>
+      <img src="LOGO.png" alt="logo">
+      <li><a href="p1.html">Home</a></li>
+      <li>
+        <a href="#">Videos ▾</a>
+        <ul>
+          <li><a href="p2.html">HTML</a></li>
+          <li><a href="p2-2.html">CSS</a></li>
+          <li><a href="p2-3.html">JavaScript</a></li>
+          <li><a href="p2-4.html">Java</a></li>
+          <li><a href="p2-5.html">C</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Quiz ▾</a>
+        <ul>
+          <li><a href="p3.html">HTML</a></li>
+          <li><a href="p3-2.html">CSS</a></li>
+          <li><a href="p3-3.html">JavaScript</a></li>
+          <li><a href="p3-4.html">Java</a></li>
+          <li><a href="p3-5.html">C</a></li>
+        </ul>
+      </li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="ourteam.html">Our Team</a></li>
+    </ul>
+  </nav>
+  <br>
+
+  <div class="quiz-container">
+    <h1>Quiz: CSS Basics</h1>
+
+    <form id="quizForm">
+      <div class="question">
+        <p>1. What does CSS stand for?</p>
+        <label><input type="radio" name="q1" value="correct"> Cascading Style Sheets</label>
+        <label><input type="radio" name="q1" value="wrong"> Computer Style Sheets</label>
+        <div id="feedback-q1" class="feedback"></div>
+      </div>
+
+      <div class="question">
+        <p>2. Which HTML tag is used to link an external CSS file?</p>
+        <label><input type="radio" name="q2" value="wrong"> &lt;style&gt;</label>
+        <label><input type="radio" name="q2" value="correct"> &lt;link&gt;</label>
+        <div id="feedback-q2" class="feedback"></div>
+      </div>
+
+      <div class="question">
+        <p>3. How do you change the background color in CSS?</p>
+        <label><input type="radio" name="q3" value="wrong"> color: blue;</label>
+        <label><input type="radio" name="q3" value="correct"> background-color: blue;</label>
+        <div id="feedback-q3" class="feedback"></div>
+      </div>
+
+      <div class="question">
+        <p>4. Which property is used to change the font size?</p>
+        <label><input type="radio" name="q4" value="correct"> font-size</label>
+        <label><input type="radio" name="q4" value="wrong"> text-size</label>
+        <div id="feedback-q4" class="feedback"></div>
+      </div>
+
+      <div class="question">
+        <p>5. How do you select an element with id "main"?</p>
+        <label><input type="radio" name="q5" value="correct"> #main</label>
+        <label><input type="radio" name="q5" value="wrong"> .main</label>
+        <div id="feedback-q5" class="feedback"></div>
+      </div>
+
+      <button type="button" onclick="submitQuiz()">Submit</button>
+    </form>
+
+    <div class="result" id="result"></div>
+
+    <div class="exit-button">
+      <button onclick="p4()">Exit</button>
+    </div>
+  </div>
+
+  <script>
+    function submitQuiz() {
+      const answers = {
+        q1: "correct",
+        q2: "correct",
+        q3: "correct",
+        q4: "correct",
+        q5: "correct"
+      };
+
+      let score = 0;
+      for (let q in answers) {
+        const selected = document.querySelector(`input[name="${q}"]:checked`);
+        const feedbackElement = document.getElementById(`feedback-${q}`);
+        
+        if (selected) {
+          if (selected.value === answers[q]) {
+            score++;
+            feedbackElement.textContent = "Correct!";
+            feedbackElement.className = "feedback correct-answer";
+          } else {
+            feedbackElement.textContent = "Wrong answer.";
+            feedbackElement.className = "feedback wrong-answer";
+          }
+        } else {
+          feedbackElement.textContent = "You didn't select an answer.";
+          feedbackElement.className = "feedback wrong-answer";
+        }
+      }
+
+      const result = document.getElementById("result");
+      result.textContent = `You scored ${score}/5 correct answers.`;
+    }
+
+    function p4() {
+      window.location.href = "p4.html"; // Link to home or any other page
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>E-Learning Platform</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .p {
+      color: red;
+    }
+
+    img {
+      border-radius: 100%;
+      height: 90px;
+    }
+
+    footer {
+      background-color: #004080;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 20px;
+    }
+
+    footer a {
+      color: #66B2FF;
+      text-decoration: none;
+      margin: 0 10px;
+      transition: color 0.3s;
+    }
+
+    footer a:hover {
+      color: #FF7043;
+     
+      /* Accent color on hover */
+    }
+    .social-icons {
+  margin-top: 10px;
+}
+
+.social-icons a {
+  color: white;
+  font-size: 20px;
+  margin: 0 10px;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.social-icons a:hover {
+  color: #FF7043;
+}
+.rr{
+  font-size: 20px;
+}
+
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body>
+  <nav>
+    <ul>
+      <img src="LOGO.png" alt="logo">
+      <li><a href="p1.html">Home</a></li>
+      <li>
+        <a href="#">Videos ▾</a>
+        <ul>
+          <li><a href="p2.html">HTML</a></li>
+          <li><a href="p2-2.html">CSS</a></li>
+          <li><a href="p2-3.html">JavaScript</a></li>
+          <li><a href="p2-4.html">Java</a></li>
+          <li><a href="p2-5.html">C</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Quiz ▾</a>
+        <ul>
+          <li><a href="p3.html">HTML</a></li>
+          <li><a href="p3-2.html">CSS</a></li>
+          <li><a href="p3-3.html">JavaScript</a></li>
+          <li><a href="p3-4.html">Java</a></li>
+          <li><a href="p3-5.html">C</a></li>
+        </ul>
+      </li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="ourteam.html">Our Team</a></li>
+    </ul>
+  </nav>
+
+
+
+  <h1>Welcome to E-Learning</h1>
+  <br><br>
+  <hr>
+  <hr>
+  <p class="rr"> Empower your skills with our free and easy-to-follow programming tutorials. Whether you're just
+    starting out or looking to brush up on your basics, our beginner-friendly video courses on HTML, CSS, JavaScript,
+    and Java are designed to help you learn at your own pace.
+    Click on a course to begin your learning journey today!</p>
+
+  <br>
+  <p>Select a course to begin:</p>
+
+  <div class="course" onclick="startp2()">
+    <h2>HTML BASICS VIDEO</h2>
+    <p class="p">Click to start learning</p>
+  </div>
+
+  <div class="course" onclick="startp3()">
+    <h2>CSS BASICS VIDEO</h2>
+    <p class="p">Click to start learning</p>
+  </div>
+
+  <div class="course" onclick="startp4()">
+    <h2>JAVA SCRIPT BASICS VIDEO</h2>
+    <p class="p">Click to start learning</p>
+  </div>
+
+  <div class="course" onclick="startp5()">
+    <h2>JAVA BASICS VIDEO</h2>
+    <p class="p">Click to start learning</p>
+  </div>
+
+  <div class="course" onclick="startp6()">
+    <h2>C BASICS VIDEO</h2>
+    <p class="p">Click to start learning</p>
+  </div>
+
+  <script src="script.js"></script>
+  <br><br>
+  <p>Thank you for choosing our E-Learning platform.
+    <hr>
+    We are committed to providing high-quality, beginner-friendly tutorials to help you grow your knowledge and skills in web development. Stay curious, keep learning, and don’t forget to explore new technologies.
+    Your journey to mastering coding starts here</p>
+  <br><br><br><br>
+  <footer class="footer">
+    <footer>
+      <div class="footer-container">
+        <img src="LOGO.png" alt="">
+        <p>&copy; 2025 E-Learning Platform. All rights reserved.</p>
+        <h3>
+          <a href="ourteam.html">Contact Us</a> |
+          <a href="#">Privacy Policy</a> |
+          <a href="#">Terms of Service</a>
+        </h3>
+      </div>
+      <div class="social-icons">
+        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+      </div>
+      
+    </footer>
+
+  </footer>
+
+</body>
+
+</html>
